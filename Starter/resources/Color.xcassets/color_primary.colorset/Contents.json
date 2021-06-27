@@ -1,0 +1,110 @@
+{
+  "colors" : [
+    {
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.140",
+          "green" : "0.105",
+          "red" : "0.079"
+        }
+      },
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.140",
+          "green" : "0.105",
+          "red" : "0.079"
+        }
+      },
+      "idiom" : "universal"
+    },
+    {
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.140",
+          "green" : "0.105",
+          "red" : "0.079"
+        }
+      },
+      "idiom" : "iphone"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.140",
+          "green" : "0.105",
+          "red" : "0.079"
+        }
+      },
+      "idiom" : "iphone"
+    },
+    {
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.140",
+          "green" : "0.105",
+          "red" : "0.079"
+        }
+      },
+      "idiom" : "ipad"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.140",
+          "green" : "0.105",
+          "red" : "0.079"
+        }
+      },
+      "idiom" : "ipad"
+    },
+    {
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.140",
+          "green" : "0.105",
+          "red" : "0.079"
+        }
+      },
+      "idiom" : "watch"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

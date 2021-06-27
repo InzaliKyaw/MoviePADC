@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ActorCollectionViewCell" customModule="Starter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="214" height="228"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="214" height="228"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Daniel" translatesAutoresizingMaskIntoConstraints="NO" id="Lw7-2p-Fu4">
+                        <rect key="frame" x="0.0" y="0.0" width="214" height="228"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ou0-E0-RLI">
+                        <rect key="frame" x="180" y="11.5" width="24" height="21.5"/>
+                        <color key="tintColor" name="color_yellow"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="4Tr-bK-eoi"/>
+                            <constraint firstAttribute="width" constant="24" id="TaL-3x-z0D"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You like 18 Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rZN-Pm-FPl">
+                        <rect key="frame" x="44" y="200.5" width="160" height="17.5"/>
+                        <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="14"/>
+                        <color key="textColor" name="color_white"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="k1Y-I9-lZk">
+                        <rect key="frame" x="180" y="11.5" width="24" height="21.5"/>
+                        <color key="tintColor" name="color_white"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WTS-1k-Dyn">
+                        <rect key="frame" x="10" y="193.5" width="24" height="24"/>
+                        <color key="tintColor" name="color_yellow"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="EE8-Hp-9gk"/>
+                            <constraint firstAttribute="width" constant="24" id="QGZ-Xw-Ecu"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daniel Redcliff" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aec-ks-a7C">
+                        <rect key="frame" x="10" y="164" width="194" height="20"/>
+                        <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="16"/>
+                        <color key="textColor" name="color_white"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rZN-Pm-FPl" secondAttribute="bottom" constant="10" id="5Qu-jt-jo3"/>
+                <constraint firstItem="aec-ks-a7C" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="9bP-zT-cLm"/>
+                <constraint firstAttribute="trailing" secondItem="ou0-E0-RLI" secondAttribute="trailing" constant="10" id="Aqx-PW-dA9"/>
+                <constraint firstItem="WTS-1k-Dyn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="BE0-S8-1Zk"/>
+                <constraint firstAttribute="trailing" secondItem="rZN-Pm-FPl" secondAttribute="trailing" constant="10" id="Bpu-fH-Blq"/>
+                <constraint firstItem="k1Y-I9-lZk" firstAttribute="trailing" secondItem="ou0-E0-RLI" secondAttribute="trailing" id="MSD-7O-9hH"/>
+                <constraint firstItem="k1Y-I9-lZk" firstAttribute="bottom" secondItem="ou0-E0-RLI" secondAttribute="bottom" id="OCc-Z3-Vyd"/>
+                <constraint firstAttribute="trailing" secondItem="aec-ks-a7C" secondAttribute="trailing" constant="10" id="P5c-cK-75Z"/>
+                <constraint firstItem="Lw7-2p-Fu4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="acJ-C8-vrH"/>
+                <constraint firstItem="rZN-Pm-FPl" firstAttribute="leading" secondItem="WTS-1k-Dyn" secondAttribute="trailing" constant="10" id="dKA-gi-hts"/>
+                <constraint firstItem="Lw7-2p-Fu4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="e2e-Xl-3bb"/>
+                <constraint firstItem="k1Y-I9-lZk" firstAttribute="top" secondItem="ou0-E0-RLI" secondAttribute="top" id="erC-8E-tXV"/>
+                <constraint firstAttribute="bottom" secondItem="Lw7-2p-Fu4" secondAttribute="bottom" id="hYf-oU-rXq"/>
+                <constraint firstItem="WTS-1k-Dyn" firstAttribute="top" secondItem="aec-ks-a7C" secondAttribute="bottom" constant="10" id="in8-nk-30N"/>
+                <constraint firstAttribute="bottom" secondItem="WTS-1k-Dyn" secondAttribute="bottom" constant="10" id="l2K-xy-CEI"/>
+                <constraint firstItem="k1Y-I9-lZk" firstAttribute="leading" secondItem="ou0-E0-RLI" secondAttribute="leading" id="mgT-BH-Wrj"/>
+                <constraint firstItem="ou0-E0-RLI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="qQ5-um-a8t"/>
+                <constraint firstAttribute="trailing" secondItem="Lw7-2p-Fu4" secondAttribute="trailing" id="vFI-hx-Bfm"/>
+            </constraints>
+            <size key="customSize" width="214" height="228"/>
+            <connections>
+                <outlet property="ivheart" destination="k1Y-I9-lZk" id="Y8L-YE-q8v"/>
+                <outlet property="ivheartFill" destination="ou0-E0-RLI" id="0bP-uN-xzc"/>
+            </connections>
+            <point key="canvasLocation" x="-195.6521739130435" y="55.580357142857139"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Daniel" width="120" height="150"/>
+        <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <namedColor name="color_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_yellow">
+            <color red="0.95800000429153442" green="0.75700002908706665" blue="0.064999997615814209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

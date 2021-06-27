@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PopularFilmCollectionViewCell" customModule="Starter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="177" height="226"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="177" height="226"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iy4-Xb-ckc">
+                        <rect key="frame" x="0.0" y="0.0" width="177" height="226"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Harry_Potter_5" translatesAutoresizingMaskIntoConstraints="NO" id="f8o-ap-1pr">
+                                <rect key="frame" x="0.0" y="0.0" width="177" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="kUk-lP-pvq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1" text="Harry Potter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAS-rB-wP2">
+                                <rect key="frame" x="0.0" y="176" width="177" height="19"/>
+                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="14"/>
+                                <color key="textColor" name="color_white"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8m-qR-zGa">
+                                <rect key="frame" x="0.0" y="203" width="17" height="15"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="12"/>
+                                <color key="textColor" name="color_white"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWv-U5-aFO" customClass="RatingControlBar" customModule="Starter" customModuleProvider="target">
+                                <rect key="frame" x="25" y="130.5" width="96" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="cEM-xv-RGf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                        <size key="value" width="16" height="160"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="color_primary"/>
+                        <constraints>
+                            <constraint firstItem="mWv-U5-aFO" firstAttribute="centerY" secondItem="N8m-qR-zGa" secondAttribute="centerY" id="BDY-w0-kXb"/>
+                            <constraint firstItem="f8o-ap-1pr" firstAttribute="top" secondItem="Iy4-Xb-ckc" secondAttribute="top" id="D1U-KQ-0em"/>
+                            <constraint firstItem="N8m-qR-zGa" firstAttribute="top" secondItem="PAS-rB-wP2" secondAttribute="bottom" constant="8" id="K1R-Ch-mrg"/>
+                            <constraint firstAttribute="trailing" secondItem="f8o-ap-1pr" secondAttribute="trailing" id="OCA-eJ-nYA"/>
+                            <constraint firstItem="f8o-ap-1pr" firstAttribute="leading" secondItem="Iy4-Xb-ckc" secondAttribute="leading" id="Rmj-o8-Znn"/>
+                            <constraint firstAttribute="trailing" secondItem="f8o-ap-1pr" secondAttribute="trailing" id="Rt6-Gg-gcY"/>
+                            <constraint firstItem="PAS-rB-wP2" firstAttribute="leading" secondItem="Iy4-Xb-ckc" secondAttribute="leading" id="XVU-n2-val"/>
+                            <constraint firstItem="PAS-rB-wP2" firstAttribute="top" secondItem="f8o-ap-1pr" secondAttribute="bottom" constant="16" id="gjd-5n-gPf"/>
+                            <constraint firstItem="f8o-ap-1pr" firstAttribute="top" secondItem="Iy4-Xb-ckc" secondAttribute="top" id="hCB-u9-cUi"/>
+                            <constraint firstItem="N8m-qR-zGa" firstAttribute="leading" secondItem="Iy4-Xb-ckc" secondAttribute="leading" id="lwm-lT-a5W"/>
+                            <constraint firstAttribute="bottom" secondItem="N8m-qR-zGa" secondAttribute="bottom" constant="8" id="mFH-U1-iwC"/>
+                            <constraint firstAttribute="trailing" secondItem="PAS-rB-wP2" secondAttribute="trailing" id="mbw-VA-xeb"/>
+                            <constraint firstItem="f8o-ap-1pr" firstAttribute="leading" secondItem="Iy4-Xb-ckc" secondAttribute="leading" id="xNc-aE-acu"/>
+                            <constraint firstItem="mWv-U5-aFO" firstAttribute="leading" secondItem="N8m-qR-zGa" secondAttribute="trailing" constant="8" id="ymi-bD-Uy4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Iy4-Xb-ckc" secondAttribute="bottom" id="5ut-3C-am8"/>
+                <constraint firstItem="Iy4-Xb-ckc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SJk-4f-5AQ"/>
+                <constraint firstItem="Iy4-Xb-ckc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qRw-7g-lbf"/>
+                <constraint firstAttribute="trailing" secondItem="Iy4-Xb-ckc" secondAttribute="trailing" id="rmi-hj-oRL"/>
+            </constraints>
+            <size key="customSize" width="177" height="226"/>
+            <point key="canvasLocation" x="139.85507246376812" y="152.00892857142856"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Harry_Potter_5" width="121.66666412353516" height="91"/>
+        <namedColor name="color_primary">
+            <color red="0.079000003635883331" green="0.10499999672174454" blue="0.14000000059604645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
