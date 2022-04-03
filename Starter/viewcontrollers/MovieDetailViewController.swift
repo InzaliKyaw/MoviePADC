@@ -8,8 +8,8 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
-
-
+    
+    
     @IBOutlet weak var imageViewBackdrop: UIImageView!
     @IBOutlet weak var btnRateMovies: UIButton!
     @IBOutlet weak var ivBack: UIImageView!
@@ -64,7 +64,7 @@ class MovieDetailViewController: UIViewController {
         collectionViewProductionCompany.delegate = self
         collectionViewProductionCompany.register(UINib(nibName: String(describing: ProductionCompanyCollectionViewCell.self), bundle: nil),forCellWithReuseIdentifier: String(describing: ProductionCompanyCollectionViewCell.self))
         
-       
+        
     }
     
     func fetchMovieDetails(id: Int){
@@ -89,10 +89,10 @@ class MovieDetailViewController: UIViewController {
     }
     
     private func initGestureRecognizers(){
-            let tapGestureForBack = UITapGestureRecognizer(target: self, action: #selector(onTapBack))
-            ivBack.isUserInteractionEnabled = true
-            ivBack.addGestureRecognizer(tapGestureForBack)
-        }
+        let tapGestureForBack = UITapGestureRecognizer(target: self, action: #selector(onTapBack))
+        ivBack.isUserInteractionEnabled = true
+        ivBack.addGestureRecognizer(tapGestureForBack)
+    }
     
     private func bindData(data: MovieDetailResponse){
         productionCompanies = data.productionCompanies ?? [ProductionCompany]()
@@ -137,17 +137,17 @@ class MovieDetailViewController: UIViewController {
     @objc func onTapBack(){
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension MovieDetailViewController:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -165,27 +165,30 @@ extension MovieDetailViewController:UICollectionViewDataSource,UICollectionViewD
         if collectionView == collectionViewProductionCompany {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:String(describing: ProductionCompanyCollectionViewCell.self), for: indexPath)as? ProductionCompanyCollectionViewCell else {
                 return UICollectionViewCell()
-             }
-        cell.data = productionCompanies[indexPath.row]
-
-        return cell
+            }
+            cell.data = productionCompanies[indexPath.row]
+            
+            return cell
         } else if(collectionView == collectionViewActors){
             
             
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ActorCollectionViewCell.self), for: indexPath)as? ActorCollectionViewCell else{
-            return UICollectionViewCell()
-        }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ActorCollectionViewCell.self), for: indexPath)as? ActorCollectionViewCell else{
+                return UICollectionViewCell()
+            }
             let item:MovieCast = cast[indexPath.row]
             cell.data = item.convertToActorInfoResponse()
-        return cell
+            return cell
         }else{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ActorCollectionViewCell.self), for: indexPath)as? ActorCollectionViewCell else{
                 return UICollectionViewCell()
             }
-                //let item:MovieCast = cast[indexPath.row]
-                //cell.data = item.convertToActorInfoResponse()
+            //let item:MovieCast = cast[indexPath.row]
+            //cell.data = item.convertToActorInfoResponse()
             return cell
         }
+        
+    }
+    
     
     func collectionView(_ collectionView:UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAt indexPath: IndexPath)->CGSize{
         
@@ -200,5 +203,4 @@ extension MovieDetailViewController:UICollectionViewDataSource,UICollectionViewD
         }
         return CGSize(width: collectionView.frame.width/2.5, height:CGFloat(200))
     }
-}
 }
