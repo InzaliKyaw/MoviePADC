@@ -17,11 +17,13 @@ class GenreCollectionViewCell: UICollectionViewCell {
     
     
     //ClosureFunction
-    var onTapItem : ((String)->Void) = {_ in}
-    var data:GenreVO?=nil{
+    var onTapItem : ((Int)->Void) = {_ in}
+    
+    
+    var data:GenreVO? = nil{
     didSet{
         if let genre = data{
-            lblGenre.text = genre.name
+            lblGenre.text = genre.name.uppercased()
             (genre.isSelected) ? (viewForOverlay.isHidden=false) : (viewForOverlay.isHidden=true)
             
             //gener variable is local variable can be only used within if block
@@ -37,7 +39,7 @@ class GenreCollectionViewCell: UICollectionViewCell {
         
     }
     @objc func didtapItem(){
-        onTapItem(data?.name ?? "")
+        onTapItem(data?.id ?? 0)
     }
     
 }

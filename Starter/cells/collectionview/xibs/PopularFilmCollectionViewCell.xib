@@ -21,32 +21,29 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iy4-Xb-ckc">
                         <rect key="frame" x="0.0" y="0.0" width="177" height="226"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Harry_Potter_5" translatesAutoresizingMaskIntoConstraints="NO" id="f8o-ap-1pr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imageViewBackdrop" image="Harry_Potter_5" translatesAutoresizingMaskIntoConstraints="NO" id="f8o-ap-1pr">
                                 <rect key="frame" x="0.0" y="0.0" width="177" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="kUk-lP-pvq"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1" text="Harry Potter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAS-rB-wP2">
-                                <rect key="frame" x="0.0" y="176" width="177" height="19"/>
+                                <rect key="frame" x="0.0" y="176" width="177" height="14"/>
                                 <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="14"/>
                                 <color key="textColor" name="color_white"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8m-qR-zGa">
-                                <rect key="frame" x="0.0" y="203" width="17" height="15"/>
+                                <rect key="frame" x="0.0" y="198" width="17" height="20"/>
                                 <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="12"/>
                                 <color key="textColor" name="color_white"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWv-U5-aFO" customClass="RatingControlBar" customModule="Starter" customModuleProvider="target">
-                                <rect key="frame" x="25" y="130.5" width="96" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="cEM-xv-RGf"/>
-                                </constraints>
+                                <rect key="frame" x="25" y="200" width="80" height="16"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="starSize">
-                                        <size key="value" width="16" height="160"/>
+                                        <size key="value" width="16" height="16"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                         <integer key="value" value="5"/>
@@ -71,6 +68,7 @@
                             <constraint firstItem="N8m-qR-zGa" firstAttribute="leading" secondItem="Iy4-Xb-ckc" secondAttribute="leading" id="lwm-lT-a5W"/>
                             <constraint firstAttribute="bottom" secondItem="N8m-qR-zGa" secondAttribute="bottom" constant="8" id="mFH-U1-iwC"/>
                             <constraint firstAttribute="trailing" secondItem="PAS-rB-wP2" secondAttribute="trailing" id="mbw-VA-xeb"/>
+                            <constraint firstAttribute="bottom" secondItem="mWv-U5-aFO" secondAttribute="bottom" constant="10" id="rAr-pW-HXj"/>
                             <constraint firstItem="f8o-ap-1pr" firstAttribute="leading" secondItem="Iy4-Xb-ckc" secondAttribute="leading" id="xNc-aE-acu"/>
                             <constraint firstItem="mWv-U5-aFO" firstAttribute="leading" secondItem="N8m-qR-zGa" secondAttribute="trailing" constant="8" id="ymi-bD-Uy4"/>
                         </constraints>
@@ -85,6 +83,12 @@
                 <constraint firstAttribute="trailing" secondItem="Iy4-Xb-ckc" secondAttribute="trailing" id="rmi-hj-oRL"/>
             </constraints>
             <size key="customSize" width="177" height="226"/>
+            <connections>
+                <outlet property="imageViewBackdrop" destination="f8o-ap-1pr" id="I9f-WE-4wV"/>
+                <outlet property="labelContentTitle" destination="PAS-rB-wP2" id="Ezd-YV-rNT"/>
+                <outlet property="labelRating" destination="N8m-qR-zGa" id="Hym-Iy-jA2"/>
+                <outlet property="ratingStar" destination="mWv-U5-aFO" id="Us5-I3-AaA"/>
+            </connections>
             <point key="canvasLocation" x="139.85507246376812" y="152.00892857142856"/>
         </collectionViewCell>
     </objects>

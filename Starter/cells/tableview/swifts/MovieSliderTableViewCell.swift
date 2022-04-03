@@ -11,13 +11,23 @@ class MovieSliderTableViewCell: UITableViewCell{
     @IBOutlet weak var collectionViewMovie: UICollectionView!
     
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    var delegate:MovieItemDelegate? = nil
+
+    var data:MovieListResponse?{
+        didSet{
+            //nullCheck
+            if let _ = data{
+                collectionViewMovie.reloadData()
+            }
+        }
+    }
+    
+  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-  
-    var delegate:MovieItemDelegate?=nil
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
@@ -31,18 +41,22 @@ class MovieSliderTableViewCell: UITableViewCell{
 
 extension MovieSliderTableViewCell:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return data?.results?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MovieSliderCollectionViewCell.self), for: indexPath) as? MovieSliderCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
+        cell.data = data?.results?[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.onTapMovie()
+        
+        let item = data?.results?[indexPath.row]
+        delegate?.onTapMovie(movieId: item?.id ?? -1)
     }
     
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

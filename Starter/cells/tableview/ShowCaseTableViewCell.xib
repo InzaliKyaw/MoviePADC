@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,7 +20,7 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wn7-xo-Nxf">
                         <rect key="frame" x="0.0" y="81" width="432" height="200"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="color_primary"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="cD7-pz-Bxe"/>
                         </constraints>
@@ -61,6 +60,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionViewShowCases" destination="wn7-xo-Nxf" id="zGD-Sy-Qgr"/>
+                <outlet property="heightCollectionViewShowCases" destination="cD7-pz-Bxe" id="IGM-2s-tRh"/>
                 <outlet property="lblMoreShowCases" destination="BRz-z2-VOP" id="pMJ-xu-Y5g"/>
                 <outlet property="lblShowCases" destination="K7E-35-wVe" id="Wpn-rt-99e"/>
             </connections>
@@ -74,8 +74,5 @@
         <namedColor name="color_white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

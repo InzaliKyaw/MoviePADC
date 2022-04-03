@@ -78,8 +78,11 @@
             </constraints>
             <size key="customSize" width="214" height="228"/>
             <connections>
+                <outlet property="imageViewActorProfile" destination="Lw7-2p-Fu4" id="zIU-lR-U7t"/>
                 <outlet property="ivheart" destination="k1Y-I9-lZk" id="Y8L-YE-q8v"/>
                 <outlet property="ivheartFill" destination="ou0-E0-RLI" id="0bP-uN-xzc"/>
+                <outlet property="labelActorName" destination="aec-ks-a7C" id="CpF-3x-Ffh"/>
+                <outlet property="labelKnownForDepartment" destination="rZN-Pm-FPl" id="VNd-tR-rgU"/>
             </connections>
             <point key="canvasLocation" x="-195.6521739130435" y="55.580357142857139"/>
         </collectionViewCell>

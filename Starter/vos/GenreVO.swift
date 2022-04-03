@@ -7,11 +7,13 @@
 
 import Foundation
 
-class GenreVO{
-    var name:String = "ACTION"
-    var isSelected:Bool = false
+public class GenreVO{
+   public var id:Int = 0
+   public var name:String = "ACTION"
+   public var isSelected:Bool = false
     
-    init(name:String,isSelected:Bool) {
+    init(id:Int = 0, name:String,isSelected:Bool) {
+        self.id = id
         self.name = name
         self.isSelected = isSelected
     }

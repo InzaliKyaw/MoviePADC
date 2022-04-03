@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="428" height="289"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Harry_Potter_1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pcW-vu-NK1">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Harry_Potter_1" translatesAutoresizingMaskIntoConstraints="NO" id="pcW-vu-NK1">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="289"/>
                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -30,6 +30,12 @@
                             <constraint firstAttribute="width" constant="72" id="yrV-uS-nur"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harry Potter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkV-ke-M85">
+                        <rect key="frame" x="16" y="244" width="137" height="29"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                        <color key="textColor" red="0.99990183119999998" green="1" blue="0.99987989659999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -39,9 +45,15 @@
                 <constraint firstItem="XdS-8U-nRu" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="SWc-SS-X1d"/>
                 <constraint firstAttribute="bottom" secondItem="pcW-vu-NK1" secondAttribute="bottom" id="dYy-Ee-37s"/>
                 <constraint firstAttribute="trailing" secondItem="pcW-vu-NK1" secondAttribute="trailing" id="fGz-px-9VB"/>
+                <constraint firstAttribute="bottom" secondItem="FkV-ke-M85" secondAttribute="bottom" constant="16" id="xkb-bp-aLl"/>
+                <constraint firstItem="FkV-ke-M85" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="zWo-Vw-95P"/>
                 <constraint firstItem="XdS-8U-nRu" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="zeA-Pg-onX"/>
             </constraints>
             <size key="customSize" width="428" height="289"/>
+            <connections>
+                <outlet property="imageViewBackdrop" destination="pcW-vu-NK1" id="0fY-wt-EsF"/>
+                <outlet property="labelContentTitle" destination="FkV-ke-M85" id="T8R-X2-SQI"/>
+            </connections>
             <point key="canvasLocation" x="217" y="91"/>
         </collectionViewCell>
     </objects>

@@ -12,7 +12,49 @@ class GenreTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionViewMovie: UICollectionView!
     @IBOutlet weak var collectionViewGenre: UICollectionView!
     
-    let genreList = [GenreVO(name:"ACTION",isSelected: true),GenreVO(name:"DRAMA",isSelected:false),GenreVO(name:"ADVENTURE",isSelected: false),GenreVO(name:"THRILLER",isSelected: false),GenreVO(name:"HORROR",isSelected: false)]
+//    let genreList = [GenreVO(name:"ACTION",isSelected: true),GenreVO(name:"DRAMA",isSelected:false),GenreVO(name:"ADVENTURE",isSelected: false),GenreVO(name:"THRILLER",isSelected: false),GenreVO(name:"HORROR",isSelected: false)]
+    
+    var genreList:[GenreVO]? {
+     didSet {
+        if let _ = genreList {
+            collectionViewGenre.reloadData()
+            genreList?.removeAll(where: {
+                (genreVO) -> Bool in
+                let genreID = genreVO.id
+                let results = movieListByGenre.filter{
+                    (key,value) -> Bool in
+                    genreID == key
+                }
+                return results.count == 0
+            })
+        }
+    }
+    }
+    
+    var allMoviesAndSeries : [MovieResult] = []{
+        didSet{
+            allMoviesAndSeries.forEach{
+            (movieSeries) in
+                movieSeries.genreIDS?.forEach({
+                    (genreId) in
+                    let key = genreId
+                    if var _ = movieListByGenre[key]{
+                        movieListByGenre[key]!.insert(movieSeries)
+                        
+                    }else{
+                        movieListByGenre[key] = [movieSeries]
+                    }
+                })
+            }
+            
+            onTapGenre(genreId: genreList?.first?.id ?? 0)
+        }
+    }
+    
+    private var selectedMovieList:[MovieResult] = []
+    //private var selectedMovieList : [MovieResult] = []
+    private var movieListByGenre:[Int:Set<MovieResult>] = [:]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -41,37 +83,53 @@ extension GenreTableViewCell:UICollectionViewDataSource,UICollectionViewDelegate
     
     func collectionView(_ collectionView:UICollectionView,numberOfItemsInSection section:Int) -> Int {
         if collectionView == collectionViewMovie{
-            return 10
+            return selectedMovieList.count
         }
-        return genreList.count
+        return genreList?.count ?? 0
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    
+     
     
     func collectionView(_ collectionView:UICollectionView,cellForItemAt indexPath:IndexPath) -> UICollectionViewCell {
         if collectionView == collectionViewMovie{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PopularFilmCollectionViewCell.self), for: indexPath) as? PopularFilmCollectionViewCell else{
                 return UICollectionViewCell()
             }
-            
+            cell.data = selectedMovieList[indexPath.row]
             return cell
         }else{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GenreCollectionViewCell.self), for: indexPath) as? GenreCollectionViewCell else{
                 return UICollectionViewCell()
             }
             
-            cell.data = genreList[indexPath.row]
-            cell.onTapItem = { genreName in
-                self.genreList.forEach{
-                    (GenreVO)in if genreName == GenreVO.name{
-                        GenreVO.isSelected = true
-                    }else{
-                        GenreVO.isSelected = false
-                    }
+            cell.data = genreList?[indexPath.row]
+            cell.onTapItem = { genreId in
+                    self.onTapGenre(genreId: genreId)
                 }
-                self.collectionViewGenre.reloadData()
-            }
+            
             return cell
         }
        
+    }
+    
+    private func onTapGenre(genreId: Int){
+        self.genreList?.forEach{
+            (genreVO) in
+            if genreId == genreVO.id{
+                genreVO.isSelected = true
+            }else{
+                genreVO.isSelected = false
+            }
+        }
+        let movieList = self.movieListByGenre[genreId]
+        self.selectedMovieList = movieList?.map{ $0 }
+        ?? [MovieResult]()
+        self.collectionViewGenre.reloadData()
+        self.collectionViewMovie.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -79,7 +137,7 @@ extension GenreTableViewCell:UICollectionViewDataSource,UICollectionViewDelegate
             return CGSize(width: collectionView.frame.width/3, height:
                           225)
         }
-        return CGSize(width: widthOfString(text:  genreList[indexPath.row].name, font: UIFont(name:"Geeza Pro Regular", size: 14) ?? UIFont.systemFont(ofSize: 14))+20, height: 45)
+        return CGSize(width: widthOfString(text:  genreList?[indexPath.row].name ?? "", font: UIFont(name:"Geeza Pro Regular", size: 14) ?? UIFont.systemFont(ofSize: 14))+20, height: 45)
         
     }
     

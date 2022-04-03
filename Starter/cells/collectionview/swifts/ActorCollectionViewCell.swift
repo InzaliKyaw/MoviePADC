@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ActorCollectionViewCell: UICollectionViewCell {
 
@@ -13,8 +14,23 @@ class ActorCollectionViewCell: UICollectionViewCell {
   
     @IBOutlet weak var ivheart: UIImageView!
     @IBOutlet weak var ivheartFill: UIImageView!
+    @IBOutlet weak var imageViewActorProfile : UIImageView!
+    @IBOutlet weak var labelActorName : UILabel!
+    @IBOutlet weak var labelKnownForDepartment : UILabel!
     
     var delegate:ActorActionDelegate?=nil
+    
+    var data: ActorInfoResponse? {
+        didSet{
+            if let data = data{
+                
+                labelActorName.text = data.name
+                labelKnownForDepartment.text = data.knownForDepartment
+                let posterPath = "\(AppConstants.imageBaseURL)/\(data.profilePath ?? "")"
+                imageViewActorProfile.sd_setImage(with: URL(string: posterPath))
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         initGestureRecognizers()

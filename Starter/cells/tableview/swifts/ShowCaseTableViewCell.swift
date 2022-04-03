@@ -12,6 +12,16 @@ class ShowCaseTableViewCell: UITableViewCell {
     @IBOutlet weak var lblShowCases: UILabel!
     @IBOutlet weak var lblMoreShowCases: UILabel!
     @IBOutlet weak var collectionViewShowCases: UICollectionView!
+    @IBOutlet weak var heightCollectionViewShowCases: NSLayoutConstraint!
+    
+    var data:MovieListResponse?{
+        
+        didSet{
+            if let _ = data{
+                collectionViewShowCases.reloadData()
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +30,11 @@ class ShowCaseTableViewCell: UITableViewCell {
         collectionViewShowCases.dataSource = self
         collectionViewShowCases.delegate = self
         collectionViewShowCases.register(UINib(nibName: String(describing: ShowCaseCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: ShowCaseCollectionViewCell.self))
+        
+        let itemWidth : CGFloat = collectionViewShowCases.frame.width - 50
+        let itemHeight : CGFloat = (itemWidth / 16) * 9
+        heightCollectionViewShowCases.constant = itemHeight
+
         
     }
 
@@ -31,13 +46,15 @@ class ShowCaseTableViewCell: UITableViewCell {
 }
 extension ShowCaseTableViewCell:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return data?.results?.count ?? 0
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ShowCaseCollectionViewCell.self), for: indexPath) as? ShowCaseCollectionViewCell else{
             return UICollectionViewCell()
         }
+        cell.data = data?.results?[indexPath.row]
         return cell
     }
     
